@@ -3,7 +3,17 @@ import tkinter as tk
 from PIL import Image,ImageTk 
 import random as rn
 import pymysql as pym
-import datetime as dt
+import datetime as dt 
+import sys
+import os
+
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS2
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path) 
  
 i=5
 x=0
@@ -20,17 +30,10 @@ def room():
     todo=tk.StringVar()
     root.geometry("450x600")
     root.iconbitmap(r"Todolist/assets/tick.ico") #for relative path
-    root.title("To Do Rabbit")
+    root.title("Rabbido")
     root.configure(background="black",padx=20,pady=20)      
     new()
-
     
-
-
-    
-
-
-
 def submit():
     global db
     roto=todo.get()
@@ -122,9 +125,7 @@ def new():
     sub.grid(row=0,column=2)
     spaces.grid(row=1,column=0)
     viewt.grid(row=5,column=0)
-   
     view.grid(row=6,column=0)
-    
     ref.grid(row=7,column=0)
     
     dele_s1.grid(row=8,column=0)
